@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Image</title>
+	<style>
+		.form-container {
+			margin: 50px auto;
+			width: 50%;
+			padding: 20px;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+		}
+		form input {
+			margin-bottom: 10px;
+		}
+		form button {
+			margin-top: 10px;
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Upload Image</h1>
+	<div class="form-container">
+		<form id="upload-form" enctype="multipart/form-data">
+			<label for="image-file">Choose image to upload:</label>
+			<input type="file" id="image-file" name="image-file">
+			<button type="submit" id="upload-button">Upload</button>
+		</form>
+	</div>
+    <script>
+        // add event listener to form submission
+		document.querySelector('#upload-form').addEventListener('submit', async function(event) {
+			event.preventDefault(); // prevent page from reloading
+			const formData = new FormData(this);
+			const response = await fetch('/upload-image', {
+				method: 'POST',
+				body: formData
+			});
+			const data = await response.json();
+			if (data.success) {
+				alert('Image uploaded successfully!');
+			} else {
+				alert('Error uploading image: ' + data.error);
+			}
+		});
+    </script>
+</body>
+</html>

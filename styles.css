@@ -210,3 +210,6 @@ label {
   .search-window{
     margin:20px;
   }
+
+
+  a { color: inherit; } 

@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <title>Photo Gallery</title>
     <style>
-      #gallery {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.photo {
-  width: 250px;
-  height: 250px;
-  margin: 10px;
-  object-fit: cover;
-}
-
-#upload-form {
-  margin-top: 20px;
-}
+ .container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.image {
+			margin: 10px;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+			padding: 5px;
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+		}
     
     </style>
   </head>
   <body>
-    <h1>Photo Gallery</h1>
-    <div id="gallery"></div>
-    <form id="upload-form">
-      <input type="file" id="file-input" accept="image/*" />
-      <button type="submit">Upload</button>
-    </form>
-    <script src="script.js"></script>
+    
+	<h1>Image Gallery</h1>
+	<div class="container">
+		<img class="image" src="img1.jpg">
+		<img class="image" src="img2.jpg">
+		<img class="image" src="img3.jpg">
+		<!-- add more images here -->
+	</div>
+
+
   </body>
 </html>

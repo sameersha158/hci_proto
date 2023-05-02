@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compatibility Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <style>
+        body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #666;
+}
+
+input[type="radio"] {
+  margin: 10px 0;
+}
+
+    </style>
+  </head>
+  <body>
+    
+    <div class="navbar" style="color: black;background-color: #ff5a60;;">
+        <div class="left">
+            <img src="Matrimony-Service-by-Shaadi.com.png" alt="">
+        </div>
+        <div class="middle">
+            <div class="nav-r">
+                My Shaadi
+            </div>
+            <div class="nav-r">
+                <a href="scrolling.html">Match</a>
+            </div>
+            <div class="nav-r">
+                <a href="filter.html">Search</a>
+            </div>
+            <div class="nav-r">
+                Inbox
+            </div>
+        </div>
+        <div class="right">
+            <div class="nav-r">
+                Upgare
+            </div>
+            <div class="nav-r">
+                Help
+            </div>
+            <div class="nav-r">
+
+            </div>
+        </div>
+    </div>
+    <div class="nb border-bottom" style="color:black;padding-bottom: 10px;" >
+        <div class="md">
+            <div class="mde  link-danger link-offset-2 link-underline-opacity-25">
+                <a href="dash-com.html">DashBoard</a>
+            </div>
+            <div class="mde">
+                <a href="dash-com.html">My Profiel</a>
+            </div>
+            <div class="mde">
+                Add Photos
+            </div>
+            <div class="mde">
+                <a href="search.html">Partner Preferrences</a>                </div>
+            <div class="mde">
+                More >
+            </div>
+        </div>
+    </div>
+
+    <h1>Compatibility Quiz</h1>
+    <form>
+      <h2>Question 1: How important is physical fitness to you?</h2>
+      <input type="radio" name="q1" value="a"> Very important<br>
+      <input type="radio" name="q1" value="b"> Somewhat important<br>
+      <input type="radio" name="q1" value="c"> Not important<br>
+
+      <h2>Question 2: Which of the following best describes your personality?</h2>
+      <input type="radio" name="q2" value="a"> Outgoing and adventurous<br>
+      <input type="radio" name="q2" value="b"> Reserved and thoughtful<br>
+      <input type="radio" name="q2" value="c"> Somewhere in between<br>
+
+
+      <h2>Question 3: How important is it for your partner to share your religious beliefs?</h2>
+      <input type="radio" name="q2" value="a">  Very important<br>
+      <input type="radio" name="q2" value="b"> Somewhat important<br>
+      <input type="radio" name="q2" value="c"> Not important<br>
+
+
+      <h2>Question 4: How would you describe your ideal date?</h2>
+      <input type="radio" name="q2" value="a"> Going out for a fancy dinner<br>
+      <input type="radio" name="q2" value="b"> Taking a walk on the beach<br>
+      <input type="radio" name="q2" value="c"> Staying in and watching a movie<br>
+
+
+      <h2>Question 5: What's your favorite way to spend a Saturday afternoon?</h2>
+      <input type="radio" name="q2" value="a"> Very important<br>
+      <input type="radio" name="q2" value="b">  Somewhat important<br>
+      <input type="radio" name="q2" value="c"> Not important<br>
+
+
+      <h2>Question 6: How would you describe your sense of humor?</h2>
+      <input type="radio" name="q2" value="a">Witty and sarcastic<br>
+      <input type="radio" name="q2" value="b"> Goofy and lighthearted<br>
+      <input type="radio" name="q2" value="c"> Dry and subtle<br>
+
+
+      <h2>Question 7: How important is it for your partner to have similar political beliefs?</h2>
+      <input type="radio" name="q2" value="a"> Very important<br>
+      <input type="radio" name="q2" value="b"> Somewhat important<br>
+      <input type="radio" name="q2" value="c"> Not important<br>
+
+
+      <h2>Question 8: What's your favorite type of music?</h2>
+      <input type="radio" name="q2" value="a">  Pop or hip hop<br>
+      <input type="radio" name="q2" value="b"> Rock or alternative<br>
+      <input type="radio" name="q2" value="c"> Classical or jazz<br>
+
+      <h2>Question 9: How would you describe your ideal vacation?</h2>
+      <input type="radio" name="q2" value="a">  Relaxing on a beach or by a pool<br>
+      <input type="radio" name="q2" value="b"> Exploring a new city or culture<br>
+      <input type="radio" name="q2" value="c">  Going on an adventure or outdoor excursion<br>
+
+      <!-- add more questions and answer options here -->
+
+      <a class="btn btn-primary" href="profile.html" role="button">Submit</a>    </form>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+        function calculateResults() {
+  // get the value of each answer option
+  var q1 = document.querySelector('input[name="q1"]:checked').value;
+  var q2 = document.querySelector('input[name="q2"]:checked').value;
+  var q3 = document.querySelector('input[name="q3"]:checked').value;
+  var q4 = document.querySelector('input[name="q4"]:checked').value;
+  var q5 = document.querySelector('input[name="q5"]:checked').value;
+  var q6 = document.querySelector('input[name="q6"]:checked').value;
+
+  // calculate the results based on the answer options
+  var score = 0;
+  if (q1 === "a") {
+    score += 3;
+  } else if (q1 === "b") {
+    score += 2;
+  } else {
+    score += 1;
+  }
+
+  if (q2 === "a") {
+    score += 3;
+  } else if (q2 === "b") {
+    score += 2;
+  } else {
+    score += 1;
+  }
+
+  if (q3 === "a") {
+    score += 3;
+  } else if (q3 === "b") {
+    score += 2;
+  } else {
+    score += 1;
+  }
+
+  if (q4 === "a") {
+    score += 3;
+  } else if (q4 === "b") {
+    score += 2;
+  } else {
+    score += 1;
+  }
+
+  if (q5 === "a") {
+    score += 3;
+  } else if (q5 === "b") {
+    score += 2;
+  } else {
+    score += 1;
+  }
+
+  if (q6 === "a") {
+    score += 3;
+  } else if (q6 === "b") {
+    score += 2;
+  } else {
+    score += 1;
+  }
+
+  // display the results
+  var result = document.getElementById("result");
+  if (score >= 16) {
+    result.innerHTML = "You are highly compatible!";
+  } else if (score >= 10) {
+    result.innerHTML = "You are moderately compatible.";
+  } else {
+    result.innerHTML = "You are not very compatible.";
+  }
+}
+
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+  </body>
+</html>
