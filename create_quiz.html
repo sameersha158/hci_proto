@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <style>
+        body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+#quiz-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #aaa;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+}
+
+#questions-container {
+  margin-bottom: 20px;
+}
+
+#quiz-preview-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #aaa;
+  border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar" style="color: black;background-color: #ff5a60;;">
+        <div class="left">
+            <img src="Matrimony-Service-by-Shaadi.com.png" alt="">
+        </div>
+        <div class="middle">
+            <div class="nav-r">
+                My Shaadi
+            </div>
+            <div class="nav-r">
+                <a href="scrolling.html">Match</a>
+            </div>
+            <div class="nav-r">
+                <a href="filter.html">Search</a>
+            </div>
+            <div class="nav-r">
+                Inbox
+            </div>
+        </div>
+        <div class="right">
+            <div class="nav-r">
+                Upgare
+            </div>
+            <div class="nav-r">
+                Help
+            </div>
+            <div class="nav-r">
+
+            </div>
+        </div>
+    </div>
+    <div class="nb border-bottom" style="color:black;padding-bottom: 10px;" >
+        <div class="md">
+            <div class="mde  ">
+                <a href="dash-com.html">DashBoard</a>
+            </div>
+            <div class="mde">
+                <a href="dash-com.html">My Profile</a>
+            </div>
+            <div class="mde">
+                Add Photos
+            </div>
+            <div class="mde">
+                <a href="search.html">Partner Preferrences</a>                </div>
+            <div class="mde">
+                More >
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 30px;" id="quiz-form-container">
+        <!-- <h1>Quiz Creator</h1> -->
+        <form id="quiz-form">
+          <div class="form-group">
+            <label for="quiz-name">Quiz Name:</label>
+            <input type="text" id="quiz-name" name="quiz-name" required />
+          </div>
+          <div class="form-group">
+            <label for="quiz-description">Quiz Description:</label>
+            <textarea id="quiz-description" name="quiz-description"></textarea>
+          </div>
+          <div id="questions-container">
+            <h2>Questions:</h2>
+            <p>Click "Add Question" to add a new question to the quiz.</p>
+          </div>
+          <div class="form-group">
+            <button type="button" id="add-question-button">Add Question</button>
+            <button type="submit" id="create-quiz-button">Create Quiz</button>
+          </div>
+        </form>
+      </div>
+      <div id="quiz-preview-container">
+        <h2>Quiz Preview:</h2>
+        <p>Preview your quiz as you create it.</p>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      <script>
+        // Initialize quiz questions and options arrays
+// Initialize quiz questions and options arrays
+let questions = [];
+let options = [];
+
+// Get references to HTML elements
+const quizForm = document.getElementById("quiz-form");
+const questionInput = document.getElementById("question-input");
+const optionInput = document.getElementById("option-input");
+const optionList = document.getElementById("option-list");
+const addQuestionBtn = document.getElementById("add-question-btn");
+const createQuizBtn = document.getElementById("create-quiz-btn");
+
+// Add event listener to add question button
+addQuestionBtn.addEventListener("click", function() {
+  // Get question input value and add to questions array
+  const questionValue = questionInput.value;
+  questions.push(questionValue);
+
+  // Create new array for options and add to options array
+  const newOptionArray = [];
+  options.push(newOptionArray);
+
+  // Get option input value and add to last option array
+  const optionValue = optionInput.value;
+  options[options.length - 1].push(optionValue);
+
+  // Reset option input value and focus on it
+  optionInput.value = "";
+  optionInput.focus();
+
+  // Render options list
+  renderOptionList();
+});
+
+// Add event listener to create quiz button
+createQuizBtn.addEventListener("click", function() {
+  // Create quiz object
+  const quiz = {
+    questions,
+    options
+  };
+
+  // Log quiz object to console for testing
+  console.log(quiz);
+});
+
+// Function to render options list
+function renderOptionList() {
+  // Clear options list HTML
+  optionList.innerHTML = "";
+
+  // Loop through options array and add each option as a list item
+  options.forEach(function(option, index) {
+    const listItem = document.createElement("li");
+    const input = document.createElement("input");
+    const removeBtn = document.createElement("button");
+
+    input.type = "text";
+    input.value = option;
+    input.setAttribute("data-option-index", index);
+    input.addEventListener("input", function() {
+      // Update option value in options array when input changes
+      const optionIndex = parseInt(this.getAttribute("data-option-index"));
+      options[optionIndex] = [this.value];
+    });
+
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", function() {
+      // Remove option from options array and re-render options list
+      const optionIndex = parseInt(input.getAttribute("data-option-index"));
+      options.splice(optionIndex, 1);
+      renderOptionList();
+    });
+
+    listItem.appendChild(input);
+    listItem.appendChild(removeBtn);
+    optionList.appendChild(listItem);
+  });
+}
+
+
+      </script>
+</body>
+</html>
